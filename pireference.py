@@ -55,9 +55,9 @@ def main(argv):
             continue
 
         # exposure is ok, let's send over reference colors
-        cam_params["range_hue"] = np.percentile(truth_hsv[:, :, 0], (5, 95))
-        cam_params["range_sat"] = np.percentile(truth_hsv[:, :, 1], (5, 95))
-        cam_params["range_val"] = np.percentile(truth_hsv[:, :, 2], (5, 95))
+        cam_params["range_hue"] = np.percentile(truth_hsv[:, :, 0], (5, 95)).tolist()
+        cam_params["range_sat"] = np.percentile(truth_hsv[:, :, 1], (5, 95)).tolist()
+        cam_params["range_val"] = np.percentile(truth_hsv[:, :, 2], (5, 95)).tolist()
         reference.send(cam_params)
 
         print(cam_params)
