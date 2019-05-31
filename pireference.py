@@ -37,6 +37,9 @@ def main(argv):
         :]   
         truth_hsv = cv2.cvtColor(truth, cv2.COLOR_BGR2HSV)
 
+        fname = "truth.jpg"
+        cv2.imwrite(fname, truth)
+
         brightpoint = np.percentile(truth_hsv[:, :, 2], 95)
         toobright = brightpoint > 180
         toodark = brightpoint < 80
@@ -61,8 +64,6 @@ def main(argv):
         cam_params["range_val"] = np.percentile(truth_hsv[:, :, 2], (5, 95)).tolist()
         reference.send(cam_params)
 
-        fname = "truth.jpg"
-        cv2.imwrite(fname, truth)
 
         print(cam_params)
 
