@@ -10,14 +10,16 @@ from fetch import find_ball_direct
 
 capture_res = (1600, 1200)
 
-shutter = 4
 iso_step = 50
 ISO_MIN = 50
 ISO_MAX = 800
 
-cam_params = {"shutter" : shutter}
 
 def main(argv):
+
+    shutter = argv[0]
+
+    cam_params = {"shutter" : shutter}
 
     reference = Publisher(9010)
 
@@ -70,7 +72,7 @@ def main(argv):
 
 
 if __name__ == '__main__':
-    if(len(sys.argv) > 1):
-        print("Usage: pireference (no options)")
+    if(len(sys.argv) > 2):
+        print("Usage: pireference <shutter time ms>")
     main(sys.argv[1:])
     camera.close()
