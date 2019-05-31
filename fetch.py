@@ -98,6 +98,9 @@ def find_ball_direct(img, hsv_ranges, mount_offset_deg, hfov = 68):
     hot_indices = np.transpose(np.nonzero(candidate_mask))
     c, r = cv2.minEnclosingCircle(hot_indices)
 
+    if(r <= 0):
+        return 0, -1
+
     prior_r_cm = 3.2
     baseline_cm = (img_w / r) * prior_r_cm
     distance_cm = (baseline / 2) / math.tan(math.radians(hfov/2))
