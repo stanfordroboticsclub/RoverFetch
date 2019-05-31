@@ -44,6 +44,7 @@ def main(argv):
             result = {"heading":heading, "distance":distance}
             classification.send(result)
 
+            print("Found ball!")
             print(result)
 
 
