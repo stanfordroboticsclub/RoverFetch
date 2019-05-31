@@ -8,7 +8,7 @@ from UDPComms import Subscriber, Publisher
 
 from fetch import find_ball_direct
 
-capture_res = (2592, 1944)
+capture_res = (1600, 1200)
 
 
 cam_params = {}
