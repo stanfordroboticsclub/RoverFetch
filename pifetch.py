@@ -42,7 +42,7 @@ def main(argv):
 
         if(distance > 0):
             result = {"heading":heading, "distance":distance}
-            classification.send(result)
+            detection_results.send(result)
 
             print("Found ball!")
             print(result)
