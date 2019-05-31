@@ -4,7 +4,7 @@ import numpy as np
 import sys
 import picamera
 
-import UDPComms.timeout
+import UDPComms
 from UDPComms import Subscriber, Publisher
 
 from fetch import find_ball_direct
