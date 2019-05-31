@@ -29,7 +29,7 @@ def main(argv):
             if "range_hue" not in cam_params:
                 continue
 
-        camera.exposure_speed = cam_params["shutter"]
+        camera.shutter_speed = cam_params["shutter"]
         camera.iso = cam_params["iso"]
 
         image = np.empty((capture_res[1] * capture_res[0] * 3), dtype=np.uint8)
