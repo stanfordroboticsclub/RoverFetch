@@ -17,7 +17,7 @@ ISO_MAX = 800
 
 def main(argv):
 
-    shutter = argv[0]
+    shutter = int(argv[0])
 
     cam_params = {"shutter" : shutter}
 
