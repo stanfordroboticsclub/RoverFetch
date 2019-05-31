@@ -15,8 +15,8 @@ cam_params = {}
 
 
 def main(argv):
-    idx_camera = argv[0]
-    offset_degrees = argv[1]
+    idx_camera = int(argv[0])
+    offset_degrees = float(argv[1])
 
     reference = Subscriber(9010)
     detection_results = Publisher(902 + idx_camera)
