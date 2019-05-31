@@ -29,6 +29,7 @@ def main(argv):
         image = np.empty((capture_res[1] * capture_res[0] * 3), dtype=np.uint8)
         camera.capture(image, 'bgr')
         image = image.reshape((capture_res[1], capture_res[0], 3))
+        img_h, img_w = image.shape[0:2]
 
         truth = image[ 
             int(img_h * 0):int(img_h * 0.3), 
