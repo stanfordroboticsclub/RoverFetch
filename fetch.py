@@ -78,7 +78,7 @@ def find_ball(img, truth, keepout, mount_offset_deg, hfov = 68):
     # return img_annot, candidate_mask
 
 
-def find_ball_direct(img, hsv_ranges, mount_offset_deg, hfov = 68):
+def find_ball_direct(img, hsv_ranges, mount_offset_deg, hfov = 68, paintdbg=False):
 
     img_h, img_w = img.shape[0:2]
     img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
@@ -117,6 +117,10 @@ def find_ball_direct(img, hsv_ranges, mount_offset_deg, hfov = 68):
     screen_coord_x = (c[1] - (img_w / 2))/img_w
     # multiply by known fov to get 
     heading = (screen_coord_x * hfov) + mount_offset_deg
+
+    if(paintdbg):
+        fname = "test.jpg"
+        cv2.imwrite(fname, img_annot)
 
     return heading, distance_cm
     # return img_annot, candidate_mask

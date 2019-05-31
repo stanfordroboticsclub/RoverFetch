@@ -22,6 +22,7 @@ def main(argv):
     reference = Publisher(9010)
 
     camera = picamera.PiCamera(sensor_mode=2, resolution=capture_res, framerate=10)
+    camera.shutter_speed = shutter
     iso = 400
 
     while True:
@@ -59,6 +60,9 @@ def main(argv):
         cam_params["range_sat"] = np.percentile(truth_hsv[:, :, 1], (5, 95)).tolist()
         cam_params["range_val"] = np.percentile(truth_hsv[:, :, 2], (5, 95)).tolist()
         reference.send(cam_params)
+
+        fname = "truth.jpg"
+        cv2.imwrite(fname, truth)
 
         print(cam_params)
 
