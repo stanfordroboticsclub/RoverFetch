@@ -51,7 +51,7 @@ def main(argv):
             camera.iso = iso
             cam_params["iso"] = iso
 
-            print(f"ISO changed: {iso}")
+            print("ISO changed: %d" % (iso))
             continue
 
         # exposure is ok, let's send over reference colors
