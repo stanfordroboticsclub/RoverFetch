@@ -25,6 +25,7 @@ def main(argv):
     while True:
         try:
             cam_params = reference.get()
+            print(cam_params)
         except UDPComms.timeout:
             if "range_hue" not in cam_params:
                 continue
@@ -43,6 +44,8 @@ def main(argv):
         if(distance > 0):
             result = {"heading":heading, "distance":distance}
             classification.send(result)
+
+            print(result)
 
 
 if __name__ == '__main__':
