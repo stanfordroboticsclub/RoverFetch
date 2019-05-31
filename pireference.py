@@ -25,7 +25,7 @@ def main(argv):
 
     camera = picamera.PiCamera(sensor_mode=2, resolution=capture_res, framerate=10)
     camera.shutter_speed = shutter
-    iso = 1600
+    iso = 400
 
     while True:
         image = np.empty((capture_res[1] * capture_res[0] * 3), dtype=np.uint8)
