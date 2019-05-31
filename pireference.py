@@ -18,14 +18,17 @@ ISO_MAX = 800
 def main(argv):
 
     shutter = int(argv[0])
+    iso = 400
 
     cam_params = {"shutter" : shutter}
+    cam_params = {"iso" : iso}
 
     reference = Publisher(9010)
 
     camera = picamera.PiCamera(sensor_mode=2, resolution=capture_res, framerate=10)
     camera.shutter_speed = shutter
-    iso = 400
+    camera.iso = iso
+    
 
     while True:
         image = np.empty((capture_res[1] * capture_res[0] * 3), dtype=np.uint8)
@@ -55,7 +58,6 @@ def main(argv):
 
             iso = max(ISO_MIN, min(iso, ISO_MAX))
             camera.iso = iso
-            cam_params["iso"] = iso
 
             print("ISO changed: %d" % (iso))
             continue
@@ -64,6 +66,7 @@ def main(argv):
         cam_params["range_hue"] = np.percentile(truth_hsv[:, :, 0], (5, 95)).tolist()
         cam_params["range_sat"] = np.percentile(truth_hsv[:, :, 1], (5, 95)).tolist()
         cam_params["range_val"] = np.percentile(truth_hsv[:, :, 2], (5, 95)).tolist()
+        cam_params["iso"] = iso
         reference.send(cam_params)
 
 
