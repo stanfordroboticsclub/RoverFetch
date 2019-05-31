@@ -103,10 +103,10 @@ def find_ball_direct(img, hsv_ranges, mount_offset_deg, hfov = 68):
 
     prior_r_cm = 3.2
     baseline_cm = (img_w / r) * prior_r_cm
-    distance_cm = (baseline / 2) / math.tan(math.radians(hfov/2))
+    distance_cm = (baseline_cm / 2) / math.tan(math.radians(hfov/2))
 
     # reject ball candidates closer than 1m
-    if(distance < 100):
+    if(distance_cm < 100):
         print("FP suppressed")
         return 0, -1
 
@@ -118,7 +118,7 @@ def find_ball_direct(img, hsv_ranges, mount_offset_deg, hfov = 68):
     # multiply by known fov to get 
     heading = (screen_coord_x * hfov) + mount_offset_deg
 
-    return heading, distance
+    return heading, distance_cm
     # return img_annot, candidate_mask
 
 
