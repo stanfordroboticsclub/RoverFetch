@@ -12,9 +12,6 @@ from fetch import find_ball_direct
 capture_res = (1600, 1200)
 
 
-cam_params = {}
-
-
 def main(argv):
     idx_camera = int(argv[0])
     offset_degrees = float(argv[1])
@@ -23,6 +20,7 @@ def main(argv):
     detection_results = Publisher(902 + idx_camera)
 
     camera = picamera.PiCamera(sensor_mode=2, resolution=capture_res, framerate=10)
+    cam_params = {}
     while True:
         try:
             cam_params = reference.get()
