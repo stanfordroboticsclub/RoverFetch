@@ -11,7 +11,6 @@ from fetch import find_ball_direct
 capture_res = (1600, 1200)
 
 shutter = 4
-iso = 400
 iso_step = 100
 ISO_MIN = 100
 ISO_MAX = 6400
@@ -23,9 +22,9 @@ def main(argv):
     reference = Publisher(9010)
 
     camera = picamera.PiCamera(sensor_mode=2, resolution=capture_res, framerate=10)
+    iso = 400
 
     while True:
-
         image = np.empty((capture_res[1] * capture_res[0] * 3), dtype=np.uint8)
         camera.capture(image, 'bgr')
         image = image.reshape((capture_res[1], capture_res[0], 3))
