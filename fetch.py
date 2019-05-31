@@ -1,7 +1,8 @@
+from __future__ import division
 import cv2
 import numpy as np
 import sys
-from __future__ import division
+
 
 
 # keepout region defined as list of integer indices, ordered as (y_min, y_max, x_min, x_max), using top-left origin
