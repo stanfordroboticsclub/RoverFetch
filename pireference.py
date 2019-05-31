@@ -20,9 +20,7 @@ def main(argv):
     shutter = int(argv[0])
     iso = 400
 
-    cam_params = {"shutter" : shutter}
-    cam_params = {"iso" : iso}
-
+    cam_params = {"shutter" : shutter, "iso" : iso}
     reference = Publisher(9010)
 
     camera = picamera.PiCamera(sensor_mode=2, resolution=capture_res, framerate=10)
