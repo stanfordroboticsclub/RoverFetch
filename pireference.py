@@ -11,9 +11,9 @@ from fetch import find_ball_direct
 capture_res = (1600, 1200)
 
 shutter = 4
-iso_step = 100
-ISO_MIN = 100
-ISO_MAX = 6400
+iso_step = 50
+ISO_MIN = 50
+ISO_MAX = 800
 
 cam_params = {"shutter" : shutter}
 
